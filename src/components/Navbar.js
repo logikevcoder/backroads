@@ -3,7 +3,8 @@ import styles from "../css/navbar.module.css"
 import { FaAlignRight } from "react-icons/fa"
 import links from "../constants/links"
 import socialIcons from "../constants/social-icons"
-import { Link } from "gatsby"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
+
 import logo from "../images/logo.svg"
 
 const NavBar = () => {
@@ -31,7 +32,9 @@ const NavBar = () => {
             {links.map((item, i) => {
               return (
                 <li>
-                  <Link to={item.path}>{item.text}</Link>
+                  <AniLink fade to={item.path}>
+                    {item.text}
+                  </AniLink>
                 </li>
               )
             })}
