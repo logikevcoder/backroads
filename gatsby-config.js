@@ -6,7 +6,7 @@ module.exports = {
     title: "BackRoads",
     description:
       "Explore awesome worldwide tours & discover what makes each of them unique. Forget your daily routine & say yes to adventure",
-    author: "@kevinnapier",
+    author: "@johndoe",
     data: {
       name: "john",
       age: 24,
@@ -23,7 +23,7 @@ module.exports = {
     {
       resolve: `gatsby-source-contentful`,
       options: {
-        spaceId: process.env.CONTENTFUL_ID,
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
         // Learn about environment variables: https://gatsby.dev/env-vars
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       },

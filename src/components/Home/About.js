@@ -1,10 +1,9 @@
 import React from "react"
-import Title from "./Title"
-import styles from "../css/about.module.css"
-import Img from "gatsby-image"
-
+import Title from "../Title"
+import styles from "../../css/about.module.css"
+// import img from "../../images/defaultBcg.jpeg"
 import { useStaticQuery, graphql } from "gatsby"
-
+import Img from "gatsby-image"
 const getAbout = graphql`
   query aboutImage {
     aboutImage: file(relativePath: { eq: "defaultBcg.jpeg" }) {
@@ -17,30 +16,31 @@ const getAbout = graphql`
   }
 `
 
-const About = ({ data }) => {
+const About = () => {
   const { aboutImage } = useStaticQuery(getAbout)
+
   return (
     <section className={styles.about}>
-      <Title title={"about"} subtitle={"us"} />
+      <Title title="about" subtitle="us" />
       <div className={styles.aboutCenter}>
         <article className={styles.aboutImg}>
           <div className={styles.imgContainer}>
-            <Img fluid={aboutImage.childImageSharp.fluid} />
+            {/* <img src={img} alt="about company" /> */}
+            <Img
+              fluid={aboutImage.childImageSharp.fluid}
+              alt="awesome landscape"
+            />
           </div>
         </article>
         <article className={styles.aboutInfo}>
-          <h4>Explore the difference</h4>
+          <h4>explore the difference</h4>
           <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde fugit
-            deserunt perferendis quae repellat laudantium adipisci suscipit
-            deleniti at fugiat incidunt est rerum, ullam facilis debitis iste.
-            Eligendi, harum dicta.
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla
+            doloribus enim necessitatibus?
           </p>
           <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Incidunt
-            veniam aliquam architecto aperiam, ab deleniti amet optio iusto
-            voluptatum reiciendis ipsa, animi possimus blanditiis culpa adipisci
-            placeat laborum dolorum quia?
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla
+            doloribus enim necessitatibus?
           </p>
           <button type="button" className="btn-primary">
             read more

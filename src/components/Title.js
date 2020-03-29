@@ -1,6 +1,5 @@
 import React from "react"
 import styled from "styled-components"
-
 const Title = ({ title, subtitle, className }) => {
   return (
     <div className={className}>
@@ -22,12 +21,11 @@ export default styled(Title)`
     color: var(--primaryColor);
   }
   .title {
-    color: var(--mainBlock);
+    color: var(--mainBlack);
   }
   span {
     display: block;
   }
-
   @media (min-width: 576px) {
     span {
       display: inline-block;
