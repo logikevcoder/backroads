@@ -1,23 +1,18 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.org/docs/gatsby-config/
- */
-
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 module.exports = {
   siteMetadata: {
     title: "BackRoads",
     description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse molestias unde possimus ex fuga in debitis similique sapiente corrupti cupiditate, iure rerum voluptatibus nisi quas odit veniam rem quis ea?",
-    author: "Kevin Napier",
+      "Explore awesome worldwide tours & discover what makes each of them unique. Forget your daily routine & say yes to adventure",
+    author: "@johndoe",
     data: {
-      age: 35,
+      name: "john",
+      age: 24,
     },
   },
   plugins: [
-    {
-      resolve: `gatsby-plugin-styled-components`,
-    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -26,20 +21,18 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-background-image",
+      resolve: `gatsby-source-contentful`,
       options: {
-        // add your own characters to escape, replacing the default ':/'
-        specialChars: "/:",
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        // Learn about environment variables: https://gatsby.dev/env-vars
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       },
     },
-    {
-      resolve: "gatsby-plugin-transition-link",
-      options: {
-        layout: require.resolve(`./src/components/Layout.jsx`),
-      },
-    },
-    "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp",
-    "gatsby-plugin-transition-link",
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    `gatsby-plugin-sass`,
+    `gatsby-plugin-styled-components`,
+    `gatsby-plugin-transition-link`,
+    `gatsby-plugin-playground`,
   ],
 }

@@ -8,19 +8,19 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.links}>
-        {links.map((item, i) => {
+        {links.map((item, index) => {
           return (
-            <AniLink fade to={item.path} className={styles.links} key={i}>
+            <AniLink fade key={index} to={item.path}>
               {item.text}
             </AniLink>
           )
         })}
       </div>
       <div className={styles.icons}>
-        {socialIcons.map((item, i) => {
+        {socialIcons.map((item, index) => {
           return (
             <a
-              key={i}
+              key={index}
               href={item.url}
               target="_blank"
               rel="noopener noreferrer"
@@ -31,7 +31,7 @@ const Footer = () => {
         })}
       </div>
       <div className={styles.copyright}>
-        copyright &copy;backroads travel company {new Date().getFullYear()} all
+        copyright &copy; backroads travel company {new Date().getFullYear()} all
         rights reserved
       </div>
     </footer>

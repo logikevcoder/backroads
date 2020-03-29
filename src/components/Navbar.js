@@ -1,15 +1,12 @@
 import React, { useState } from "react"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 import styles from "../css/navbar.module.css"
 import { FaAlignRight } from "react-icons/fa"
 import links from "../constants/links"
 import socialIcons from "../constants/social-icons"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
-
 import logo from "../images/logo.svg"
-
-const NavBar = () => {
-  const [isOpen, setNav] = useState(false)
-
+const Navbar = () => {
+  const [isOpen, setNav] = useState()
   const toggleNav = () => {
     setNav(isOpen => !isOpen)
   }
@@ -19,44 +16,44 @@ const NavBar = () => {
       <div className={styles.navCenter}>
         <div className={styles.navHeader}>
           <img src={logo} alt="backroads logo" />
-          <button type="button" onClick={toggleNav} className={styles.logoBtn}>
+          <button type="button" className={styles.logoBtn} onClick={toggleNav}>
             <FaAlignRight className={styles.logoIcon} />
           </button>
-          <ul
-            className={
-              isOpen
-                ? `${styles.navLinks} ${styles.showNav}`
-                : `${styles.navLinks}`
-            }
-          >
-            {links.map((item, i) => {
-              return (
-                <li>
-                  <AniLink fade to={item.path}>
-                    {item.text}
-                  </AniLink>
-                </li>
-              )
-            })}
-          </ul>
-          <div className={styles.navSocialLinks}>
-            {socialIcons.map((item, i) => {
-              return (
-                <a
-                  key={i}
-                  href={item.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {item.icon}
-                </a>
-              )
-            })}
-          </div>
+        </div>
+        <ul
+          className={
+            isOpen
+              ? `${styles.navLinks} ${styles.showNav}`
+              : `${styles.navLinks}`
+          }
+        >
+          {links.map((item, index) => {
+            return (
+              <li key={index}>
+                <AniLink fade to={item.path}>
+                  {item.text}
+                </AniLink>
+              </li>
+            )
+          })}
+        </ul>
+        <div className={styles.navSocialLinks}>
+          {socialIcons.map((item, index) => {
+            return (
+              <a
+                key={index}
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {item.icon}
+              </a>
+            )
+          })}
         </div>
       </div>
     </nav>
   )
 }
 
-export default NavBar
+export default Navbar
