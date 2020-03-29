@@ -12,8 +12,6 @@ const blog = ({ data }) => {
   )
 }
 
-export default blog
-
 export const query = graphql`
   {
     blogBg: file(relativePath: { eq: "blogBcg.jpeg" }) {
@@ -25,3 +23,5 @@ export const query = graphql`
     }
   }
 `
+
+export default blog
